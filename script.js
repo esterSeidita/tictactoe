@@ -108,11 +108,16 @@ const isGameEnded = () => {
 const restartModal = (text) => {
   startDiv.classList.remove("d-none");
   overlay.classList.remove("d-none");
-  startDiv.innerHTML = `<p>${text}</p><button class="go">Ricomincia!</button>`;
+  startDiv.innerHTML = `<p>${text}</p><button class="go">Ricomincia!</button><button class="change">Cambia Giocatori</button>`;
   q(".go").addEventListener("click", () => {
+    
     startDiv.classList.add("d-none");
     overlay.classList.add("d-none");
     restart();
+  })
+
+  q(".change").addEventListener("click", () => {
+    window.location.reload(true);
   })
 }
 
