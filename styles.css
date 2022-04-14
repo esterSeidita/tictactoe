@@ -7,7 +7,8 @@
 }
 
 :root{
-    --bg: rgb(101 20 20);
+    --borders: rgb(0, 0, 0);
+    --bgSquare: rgba(234, 227, 227, 0.774);
 }
 html{
     height: 100vh;
@@ -20,21 +21,26 @@ html{
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
+    background-image: url(https://img.freepik.com/free-vector/comic-style-background_23-2148825453.jpg?w=900);
+    background-size: cover;
+    height: 100vh;
 }
 
-.pageWrapper>*{
-    margin: 0.8em;
-}
+
 .gameWrapper{
-    border: 6px solid black;
-    width: 400px;
-    height: 400px;
+    border: 10px solid var(--borders);
+    width: 100%;
+    max-width: 400px;
+    height: 70%;
+    max-height: 400px;
     display: flex;
     flex-wrap: wrap;
+    background-color: var(--bgSquare);
 }
 
 .gameWrapper>div{
-    border: 2px solid black;
+    border: 3px solid var(--borders);
+    color: var(--borders);
     width: calc(100%/3);
     height: calc(100%/3);
     cursor: pointer;
@@ -54,7 +60,7 @@ html{
 }
 
 .start{
-    background-color: var(--bg);
+    background-color: var(--borders);
     color: aliceblue;
     height: 80vh;
     width: 90vw;
@@ -105,4 +111,14 @@ button{
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
+}
+
+.title{
+    width: 100vw;
+    text-align: center;
+    background-color: rgb(239, 232, 232);
+    padding: 0.5em;
+    margin-bottom: 30px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 2rem;
 }

@@ -44,7 +44,7 @@ const generateSymbol = (e) => {
       return;
     }
   if (isGameEnded().result) {
-    restartModal("Il gioco è finito! Non ha vinto nessuno :(");
+    restartModal("Il gioco è finito! Non ha vinto nessuno.");
     return;
   }
   changePlayer();
