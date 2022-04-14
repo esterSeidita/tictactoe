@@ -1,0 +1,99 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* :root{
+    --text: rgb(0, 0, 0);
+} */
+html{
+    height: 100vh;
+}
+.pageWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+.pageWrapper>*{
+    margin: 0.8em;
+}
+.gameWrapper{
+    border: 6px solid black;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gameWrapper>div{
+    border: 2px solid black;
+    /* color: var(--text); */
+    width: calc(100%/3);
+    height: calc(100%/3);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+}
+
+.overlay{
+    background-color: white;
+    height: 100vh; width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.start{
+    background-color: rgb(31, 31, 31);
+    color: aliceblue;
+    height: 50vh;
+    width: 60vw;
+    border-radius: 5em;
+    position: absolute; top:50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.start>div{
+    padding: 0.3em;
+    margin: 0.3em
+}
+
+.start h1{
+    padding: 0.5em;
+}
+
+input{
+    padding: 0.3em;
+    border: none;
+    border-radius: 0.3em;
+    margin-left: 10px;
+}
+
+
+.d-none{
+    display: none !important;
+}
+
+button{
+    padding: 1em;
+    width: 60%;
+    border-radius: 1em;
+    border:none;
+    margin: 1em auto;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
