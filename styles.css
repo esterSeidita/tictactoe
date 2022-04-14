@@ -8,7 +8,7 @@
 
 :root{
     --borders: rgb(0, 0, 0);
-    --bgSquare: rgba(222, 216, 216, 0.925);
+    --bgSquare: rgba(234, 230, 230, 0.925);
     --bgImage:url(https://img.freepik.com/free-vector/comic-bright-elements-seamless-pattern_225004-804.jpg?w=740)
 }
 html{
@@ -23,6 +23,7 @@ html{
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
+    background-color:aliceblue;
     background-image: var(--bgImage);
     background-size: cover;
     height: 100vh;
