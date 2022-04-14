@@ -67,8 +67,8 @@ html{
     justify-content: center;
     align-items: center;
     z-index: 1;
-    cursor: pointer;
     padding: 1em;
+    text-align: center;
 }
 
 .start>div{
@@ -99,7 +99,7 @@ label{
 button{
     padding: 1em;
     width: 60%;
-    border-radius: 1em;
+    border-radius: 0.5em;
     border:none;
     margin: 1em auto;
     font-weight: bold;

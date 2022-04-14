@@ -4,15 +4,30 @@ const q = (selector) => document.querySelector(selector);
 const startBtn = q(".startBtn");
 const startDiv = q(".start");
 const overlay = q(".overlay");
+const title = q(".title");
+const player1Input = q("#player1");
+const player2Input = q("#player2");
+const alert = q(".alert");
+let player1Name, player2Name;
 
-let player1, player2;
+  startBtn.addEventListener("click", () => {
+    player1Name = player1.value;
+    player2Name = player2.value;
 
-startBtn.addEventListener("click", () => {
-    startDiv.classList.add("d-none");
-    overlay.classList.add("d-none");
-     player1 = q(".player1").value;
-     player2 = q(".player2").value;
-})
+    if(player1.value !== "" && player2.value !== ""){
+
+    startDiv.innerHTML = `<p><strong>Ricorda:</strong> ${player1Name} ha lo zero e inizia per primo/a, mentre ${player2Name} ha X ed è secondo/a<br><br>Chi vince inizierà per primo durante il round successivo.</p><button class="goBtn">Ho capito!</button>`;
+    
+    q(".goBtn").addEventListener("click", () => {
+      startDiv.classList.add("d-none");
+      overlay.classList.add("d-none");
+    })
+
+    title.textContent = `${player1Name} VS ${player2Name}!!`;
+  }
+  else alert.textContent = "Inserisci prima i due nomi, checcavolo!!";
+  })
+  
 
 const tickCircle = "O";
 const tickX = "X";
@@ -22,15 +37,14 @@ let positions = [];
 const generateSymbol = (e) => {
   const square = e.target;
   if (!positions[square.id]) positions[square.id] = currentPlayer;
+  else return;
   square.textContent = currentPlayer;
   if (isGameEnded().winner) {
-      alert(`Il gioco è finito! Ha vinto ${isGameEnded().winner}`);
-      restart();
+    restartModal(`Il gioco è finito! Ha vinto ${isGameEnded().winner}`);
       return;
     }
   if (isGameEnded().result) {
-    alert("Il gioco è finito! Non ha vinto nessuno :(");
-    restart();
+    restartModal("Il gioco è finito! Non ha vinto nessuno :(");
     return;
   }
   changePlayer();
@@ -63,7 +77,7 @@ const isGameEnded = () => {
       |       
       (positions[2] === tickCircle && positions[4] === tickCircle && positions[6] === tickCircle)
       ){
-      return  { result: true, winner: tickCircle };
+      return  { result: true, winner: player1Name };
   }
 
   if(
@@ -83,7 +97,7 @@ const isGameEnded = () => {
       |       
       (positions[2] === tickX && positions[4] === tickX && positions[6] === tickX)
       ){
-      return  { result: true, winner: tickX };
+      return  { result: true, winner: player2Name };
   }
 
   if (positions.filter((pos) => pos).length === 9) return { result: true, winner: false };
@@ -91,9 +105,21 @@ const isGameEnded = () => {
   return { result: false, winner: false };
 };
 
+const restartModal = (text) => {
+  startDiv.classList.remove("d-none");
+  overlay.classList.remove("d-none");
+  startDiv.innerHTML = `<p>${text}</p><button class="go">Ricomincia!</button>`;
+  q(".go").addEventListener("click", () => {
+    startDiv.classList.add("d-none");
+    overlay.classList.add("d-none");
+    restart();
+  })
+}
+
+
 const restart = () => {
-    qAll(".square").forEach(square=>square.textContent = "");
-    positions = [];
+  qAll(".square").forEach(square=>square.textContent = "");
+  positions = [];
 }
 
 qAll(".square").forEach((square, index) => {
