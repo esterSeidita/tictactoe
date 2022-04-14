@@ -9,7 +9,7 @@
 :root{
     --borders: rgb(0, 0, 0);
     --bgSquare: rgba(234, 230, 230, 0.925);
-    --bgImage:url(https://img.freepik.com/free-vector/comic-bright-elements-seamless-pattern_225004-804.jpg?w=740)
+    --bgImage:url("./804.jpg")
 }
 html{
     max-height: 100vh;
