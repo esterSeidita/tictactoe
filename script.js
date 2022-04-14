@@ -28,7 +28,11 @@ const generateSymbol = (e) => {
       restart();
       return;
     }
-  if (isGameEnded().result) alert("Il gioco è finito! Non ha vinto nessuno :(");
+  if (isGameEnded().result) {
+    alert("Il gioco è finito! Non ha vinto nessuno :(");
+    restart();
+    return;
+  }
   changePlayer();
 };
 
